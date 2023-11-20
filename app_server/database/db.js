@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const host = process.env.DB_HOST || '127.0.0.1'
-const dbURI = 'mongodb://localhost/travlr'; 
+constdbURI = `mongodb://${host}/travlr`;
 const readLine = require('readline');
 
 // avoid 'current server discovery and monitoring engine is deprecated'
@@ -54,4 +54,4 @@ process.on('SIGTERM', () => {
 connect();
 
 // bring in the mongoose schema
-require('./travlr');
+require('./models/travlr');
