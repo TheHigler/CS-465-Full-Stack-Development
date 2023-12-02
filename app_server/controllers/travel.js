@@ -7,35 +7,6 @@ const apiOptions = {
     server: 'https://localhost:3000'
 };
 
-/* GET travel view */
-const travel = (req, res) => {
-    pageTitle = packageJson.description + ' | Travel';
-    res.render('travel', { title: pageTitle, trips });
-   };
-   module.exports = {
-    travel
-   };
-
-   /* GET travel list view */
-const travelList = (req, res) => {
-    const path = '/api/trips';
-    const requestOptions = {
-        url: `${apiOptions.server}${path}`,
-        method: 'GET',
-        json: {},
-    };
-    console.info('>> travelController.travelList calling ' + requestOptions.url);
-    request(
-        requestOptions,
-        (err, { statusCode }, body) => {
-            if (err) {
-                console.error(err);
-            }
-            renderTravelList(req, res, body);
-        }
-    );
-};
-
 const renderTravelList = (req, res, responseBody) => {
     let message = null;
     let pageTitle = process.env.npm_package_description + ' - Travel';
@@ -56,3 +27,27 @@ const renderTravelList = (req, res, responseBody) => {
     }
     );
 }
+   /* GET travel list view */
+const travelList = (req, res) => {
+    const path = '/api/trips';
+    const requestOptions = {
+        url: `${apiOptions.server}${path}`,
+        method: 'GET',
+        json: {},
+    };
+    console.info('>> travelController.travelList calling ' + requestOptions.url);
+    request(
+        requestOptions,
+        (err, { statusCode }, body) => {
+            if (err) {
+                console.error(err);
+            }
+            renderTravelList(req, res, body);
+        }
+    );
+};
+
+
+module.exports = {
+    travelList
+   };
