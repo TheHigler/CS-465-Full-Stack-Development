@@ -8,7 +8,7 @@ const routes: Routes = [
     { path: 'add trip', component: AddTripComponent},
     { path: 'edit-trip', component: EditTripComponent},
     { path: '', component: TripListingComponent, pathMatch: 'full'}
-]
+];
 
 NgModule({
     imports: [RouterModule.forRoot(routes)],

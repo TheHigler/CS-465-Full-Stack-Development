@@ -17,7 +17,7 @@ export class TripDataService {
     return this.http
     .get(this.tripUrl + tripCode)
     .toPromise()
-    .then(response => response.json() as Trip)
+    .then(response => response.json() as Trip[])
     .catch(this.handleError);
   }
 
