@@ -6,13 +6,14 @@ import { AuthenticationService } from '../services/authentication.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
 
+export class NavbarComponent implements OnInit {
   constructor(
     private authenticationService: AuthenticationService
   ) { }
 
   ngOnInit() { }
+
   public isLoggedIn(): boolean {
     return this.authenticationService.isLoggedIn();
   }
@@ -20,5 +21,4 @@ export class NavbarComponent implements OnInit {
   public onLogout(): void {
     return this.authenticationService.logout();
   }
-
 }

@@ -15,9 +15,9 @@ const register = (req, res) => {
     user.save((err) => {
         if (err) {
             res
-            .status(400)
-            .json(err);
-        }
+                .status(400)
+                .json(err);
+        } 
         else {
             const token = user.generateJwt();
             res
@@ -26,12 +26,11 @@ const register = (req, res) => {
         }
     })
 };
-
 const login = (req, res) => {
     if (!req.body.email || !req.body.password) {
         return res
             .status(400)
-            .json({"message": "All fields required."});
+            .json({"message": "All fields required"});
     }
     passport.authenticate('local', (err, user, info) => {
         if (err) {
@@ -44,13 +43,13 @@ const login = (req, res) => {
             res
                 .status(200)
                 .json({token});
-        }
+        } 
         else {
             res
                 .status(401)
                 .json(info);
         }
-    }) (req, res);
+    })(req, res);
 };
 
 module.exports = {
